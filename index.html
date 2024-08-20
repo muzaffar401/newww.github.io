@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        .offcanvas-body {
+            background-color: rgb(224, 224, 224);
+        }
+
+        .btn-close {
+            float: right !important;
+        }
+
+        .navbar {
+            height: 120px;
+        }
+
+        #logo {
+            margin-left: 10px !important;
+        }
+
+        #donate {
+            font-size: 20px;
+            border-radius: 30px;
+            padding: 7px 20px;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: rgb(238, 238, 238);
+        }
+
+        #menu {
+            font-size: 25px;
+        }
+
+        body {
+            background-color: rgb(255, 249, 236);
+        }
+
+        #profileImage {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-container input {
+            width: 100%;
+            padding-right: 40px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .offcanvas-body {
+            background-color: rgb(224, 224, 224);
+        }
+
+        #form {
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        #offcanvasRight {
+            width: 350px !important;
+        }
+
+        .btn-close {
+            float: right !important;
+        }
+
+        .navbar {
+            height: 120px;
+        }
+
+        #logo {
+            margin-left: 10px !important;
+        }
+
+        #donate {
+            font-size: 20px;
+            border-radius: 30px;
+            padding: 7px 20px;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: rgb(238, 238, 238);
+        }
+
+        #menu {
+            font-size: 25px;
+        }
+
+        body {
+            background-color: rgb(255, 249, 236);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-section {
+            position: relative;
+            text-align: center;
+        }
+
+
+
+        .register-button {
+            position: absolute;
+            top: 74%;
+            /* Adjust this value to place the button vertically */
+            left: 43%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 13px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 30px;
+            letter-spacing: 0.4rem;
+        }
+
+
+        #card1 {
+            /* background-color: black; */
+            border-radius: 20px;
+            padding: 20px;
+            transition: .5s;
+        }
+
+        #card1 img:hover {
+            transform: scale(0.9);
+        }
+
+        #card1:hover img {
+            background-color: rgb(181, 51, 50);
+        }
+
+        #card1:hover {
+            background-color: rgb(181, 51, 50);
+            color: white;
+            cursor: pointer;
+        }
+
+        #card2 {
+            /* background-color: black; */
+            border-radius: 20px;
+            padding: 20px;
+            transition: .5s;
+        }
+
+        #card2 img:hover {
+            transform: scale(0.9);
+        }
+
+        #card2:hover img {
+            background-color: rgb(134, 41, 61);
+        }
+
+        #card2:hover {
+            background-color: rgb(134, 41, 61);
+            color: white;
+            cursor: pointer;
+        }
+
+        #card3 {
+            /* background-color: black; */
+            border-radius: 20px;
+            padding: 20px;
+            transition: .5s;
+        }
+
+        #card3 img:hover {
+            transform: scale(0.9);
+        }
+
+        #card3:hover img {
+            background-color: rgb(60, 94, 53);
+        }
+
+        #card3:hover {
+            background-color: rgb(60, 94, 53);
+            color: white;
+            cursor: pointer;
+        }
+
+
+        #cards1 {
+            /* background-color: black; */
+            border-radius: 20px;
+            padding: 20px;
+            transition: .5s;
+        }
+
+        #cards1 img:hover {
+            transform: scale(0.9);
+        }
+
+        #cards1:hover img {
+            background-color: rgb(134, 41, 61);
+        }
+
+        #cards1:hover {
+            background-color: rgb(134, 41, 61);
+            color: white;
+            cursor: pointer;
+        }
+
+        #cards2 {
+            /* background-color: black; */
+            border-radius: 20px;
+            padding: 20px;
+            transition: .5s;
+        }
+
+        #cards2 img:hover {
+            transform: scale(0.9);
+        }
+
+        #cards2:hover img {
+            background-color: rgb(60, 94, 53);
+        }
+
+        #cards2:hover {
+            background-color: rgb(60, 94, 53);
+            color: white;
+            cursor: pointer;
+        }
+
+        #cards3 {
+            /* background-color: black; */
+            border-radius: 20px;
+            padding: 20px;
+            transition: .5s;
+        }
+
+        #cards3 img:hover {
+            transform: scale(0.9);
+        }
+
+        #cards3:hover img {
+            background-color: rgb(148, 73, 0);
+        }
+
+        #cards3:hover {
+            background-color: rgb(148, 73, 0);
+            color: white;
+            cursor: pointer;
+        }
+
+        #cards4 {
+            /* background-color: black; */
+            border-radius: 20px;
+            padding: 20px;
+            transition: .5s;
+        }
+
+        #cards4 img:hover {
+            transform: scale(0.9);
+        }
+
+        #cards4:hover img {
+            background-color: rgb(181, 51, 50);
+        }
+
+        #cards4:hover {
+            background-color: rgb(181, 51, 50);
+            color: white;
+            cursor: pointer;
+        }
+
+        #blog .card {
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        #welcome {
+            font-size: 60px;
+            font-weight: bold;
+            letter-spacing: 8px;
+            font-family: poppins;
+        }
+
+        #welcome5 {
+            font-size: 60px;
+            font-weight: bold;
+            letter-spacing: 0px;
+            font-family: poppins;
+        }
+
+        #welcome1 {
+            font-size: 60px;
+            font-weight: bold;
+            letter-spacing: 0px;
+            font-family: poppins;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        #p {
+            font-family: roboto;
+            text-align: justify;
+        }
+
+        #p2 {
+            font-family: roboto;
+            text-align: justify;
+            opacity: 0.7;
+        }
+
+        #p1 {
+            font-family: roboto;
+            text-align: justify;
+
+        }
+
+        #p5 {
+            font-family: roboto;
+            letter-spacing: 3px;
+
+        }
+
+        #btn {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
+
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+
+        #form #input {
+            height: 60px;
+        }
+
+
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* Layout skeleton */
+
+        /* Remove transition to eliminate lag */
+        .sidebar-link[data-bs-toggle="collapse"],
+        .sidebar-dropdown {
+            transition: none;
+            /* Remove transition */
+        }
+
+        /* If you want a smoother experience, try a faster transition */
+        .sidebar-link[data-bs-toggle="collapse"],
+        .sidebar-dropdown {
+            transition: all 0.2s ease-in-out;
+            /* Faster transition */
+        }
+
+
+
+
+
+        a.sidebar-link {
+            padding: .625rem 1rem;
+            color: #000000;
+            position: relative;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .sidebar-link[data-bs-toggle="collapse"]::after {
+            border: solid;
+            border-width: 0 .075rem .075rem 0;
+            content: "";
+            display: inline-block;
+            padding: 2px;
+            position: absolute;
+            right: 1.5rem;
+            top: 1.4rem;
+            transform: rotate(-135deg);
+            transition: all .2s ease-out;
+        }
+
+        .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+            transform: rotate(45deg);
+            transition: all .2s ease-out;
+        }
+
+        .navbar {
+            /* background-color:  #B53332!important; */
+            background-color: rgb(134, 41, 61) !important;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        #lefth1 {
+            margin-top: 50px;
+            color: white;
+            /* font-family: "IBM Plex Serif", Sans-serif; */
+            font-size: 50px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 200;
+        }
+
+        #p1 {
+            /* font-family: "Work Sans", Sans-serif; */
+            font-size: 23px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            line-height: 2em;
+        }
+
+        #sec {
+            height: 750px;
+            /* background-color: #B53332 !important; */
+            background-color: rgb(134, 41, 61) !important;
+            position: absolute;
+            width: 100%;
+        }
+
+        #donate {
+            font-size: 20px;
+            border-radius: 30px;
+            padding: 7px 20px;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #ece8db !important;
+        }
+
+        #r19 {
+            width: 450px !important;
+            height: 450px !important;
+            margin-top: 100px;
+        }
+
+        @media screen and (max-width: 991px) {
+            #sec {
+                height: 1200px;
+                /* background-color: #B53332 !important; */
+                background-color: rgb(134, 41, 61) !important;
+                position: absolute;
+                width: 100%;
+            }
+
+            #sec img {
+                display: block;
+                margin: auto !important;
+                margin-top: 100px !important;
+            }
+
+            #icon1 {
+                margin-bottom: 1200px !important;
+                position: relative;
+                top: 1100px !important;
+            }
+
+            #p10 p {
+                font-size: 22px !important;
+            }
+
+            #hr1 {
+                margin-bottom: -40px !important;
+            }
+
+            #joinletter {
+                text-align: center !important;
+            }
+
+        }
+
+        @media screen and (max-width: 798px) {
+            #sec #p1 {
+                font-size: 21px !important;
+            }
+        }
+
+        @media screen and (max-width: 575px) {
+            #sec #p1 {
+                text-align: start !important;
+            }
+
+        }
+
+        @media screen and (max-width: 463px) {
+            #icon1 {
+                margin-bottom: 1200px !important;
+                position: relative;
+                top: 1130px !important;
+            }
+
+            #sec img {
+                display: block;
+                margin: auto !important;
+                margin-top: 70px !important;
+                height: 350px !important;
+                width: 350px !important;
+            }
+        }
+
+        @media screen and (max-width: 740px) {
+            @media screen and (max-width: 740px) {
+                #userAccount span {
+                    display: none;
+                }
+
+                #donate span {
+                    display: none;
+                }
+
+                #donate {
+                    width: 50px;
+                    padding: 10px;
+                    border-radius: 50%;
+                }
+
+                #userAccount {
+                    width: 50px;
+                    padding: 10px;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        @media screen and (max-width: 518px) {
+            @media screen and (max-width: 740px) {
+                #userAccount span {
+                    display: none;
+                }
+
+                #donate span {
+                    display: none;
+                }
+
+                #donate {
+                    width: 40px;
+                    padding: 5px;
+                    border-radius: 50%;
+                    font-size: 17px;
+                }
+
+                #userAccount {
+                    width: 40px;
+                    padding: 5px;
+                    border-radius: 50%;
+                    font-size: 17px;
+                }
+
+                #logo {
+                    margin-left: 0px !important;
+                    height: 43px;
+                }
+
+                #donate {
+                    margin-right: 3px !important;
+                }
+
+                #userAccount {
+                    margin-right: 3px !important;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#"><img src="logo.png" id="logo" height="60" alt=""></a>
+            <div>
+                <button class="btn btn-success" id="donate" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDonate" aria-controls="offcanvasDonate">
+                    <i class="fa-solid fa-hand-holding-heart"></i> <span id="donateText">Donate Now</span>
+                </button>
+
+                <button class="btn btn-light" id="userAccount" type="button" onclick="redirectToLogin()">
+                    <i class="fa-solid fa-user"></i> <span id="accountText">Sign Up/Login</span>
+                </button>
+                <button class="btn" id="menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"><i class="fa-solid fa-bars-staggered"></i></button>
+            </div>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDonate"
+                aria-labelledby="offcanvasDonateLabel">
+                <div class="offcanvas-header">
+                    <h5 id="offcanvasDonateLabel">Donate Now</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <button class="btn btn-primary" onclick="handleDonate('money')">Donate Money</button>
+                    <button class="btn btn-secondary" onclick="handleDonate('food')">Donate Food</button>
+                </div>
+            </div>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-body">
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                    <div class="mt-5">
+                        <a class="nav-link" href="#">HOME</a>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#pages"
+                                aria-expanded="false" aria-controls="pages">
+                                How We Help
+                            </a>
+                            <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                                <li class="sidebar-item">
+                                    <a href="about.html" class="sidebar-link">About Leftovers</a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="rescuefood.html" class="sidebar-link">Rescue Food</a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="homeharvest.html" class="sidebar-link">Home Harvest</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <a class="nav-link" href="#">Get Involved</a>
+                        <a class="nav-link" href="#">Events</a>
+                        <a class="nav-link" href="#">Media</a>
+                        <a class="nav-link" href="riderLoginForm.html">Rider Registration</a>
+                        <a class="nav-link" href="volunteerRegister.html">Volunteer Registration</a>
+                        <a class="nav-link" href="#">Resource Center</a>
+                        <a class="nav-link" href="#">Contact & FAQ</a>
+                        <a class="nav-link mb-5" href="#">IDEA and Anti-Racism Commitments</a>
+
+                        <form class="p-3" id="form">
+                            <h3 class="text-center my-5">Join our newsletter</h3>
+                            <input class="form-control my-3" type="text" name="firstName" placeholder="First Name"
+                                required>
+                            <input class="form-control my-3" type="text" name="lastName" placeholder="Last Name"
+                                required>
+                            <input class="form-control my-3" type="email" name="email" placeholder="Email" required>
+                            <div class="form-check my-4">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    I agree to receive marketing messages via email.
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile" aria-labelledby="offcanvasProfileLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasProfileLabel">Profile</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="d-flex flex-column align-items-center">
+                <img id="profileImage" src="user-image-with-black-background.png" alt="Profile Image">
+                <p id="userName" class="mb-3"></p>
+                <button class="btn btn-outline-primary mb-3" onclick="document.getElementById('fileInput').click()"><i
+                        class="fa-solid fa-camera"></i> Change Profile Image</button>
+                <input type="file" id="fileInput" accept="image/*" onchange="updateProfileImage()">
+                <button class="btn btn-outline-secondary mb-3" onclick="logout()"><i
+                        class="fa-solid fa-sign-out-alt"></i> Logout</button>
+                <button class="btn btn-outline-danger" onclick="removeAccount()"><i class="fa-solid fa-user-slash"></i>
+                    Remove Account</button>
+            </div>
+        </div>
+    </div>
+
+    <section id="sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 mt-5">
+                    <h1 id="lefth1">—Donate Food</h1>
+                    <p id="p1" class="text-white mt-4" style=" text-align: justify;">
+                        At Leftovers, we know that no one who makes or sells good food wants it to go to waste. And it
+                        doesn’t have to! Donating edible food is an effective way to lower the costs of waste disposal
+                        and reduce your business’s contribution to greenhouse gas emissions. It’s also an easy and safe
+                        way to make a contribution to your community.
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <img src="r19.png" alt="hero" id="r19">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- icon -->
+    <div class="container text-center">
+        <a href="#"><i class="fa-solid fa-chevron-down" id="icon1"
+                style="color: rgba(226, 226, 226, 0.514); font-size: 40px; position: relative; top: 650px; margin-bottom: 750px;"></i></a>
+    </div>
+    <!-- our imapct -->
+
+
+
+    <div class="container d-block" id="p10">
+        <p class="text-center fs-5 my-5">Whether your business is a first time food donor or you’re finding you have
+            more food to
+            donate than your current food rescue solution can distribute, Leftovers is here for you. By joining the
+            Rescue Food program, you can schedule recurring routes or on-demand pickups, and our dedicated volunteers
+            will make sure that your surplus good food gets safely to community organizations serving the people who
+            need it most.</p>
+        <button class="text-light btn m-auto d-block my-5 fs-3" style="background-color: rgb(134, 41, 61) ">Donate
+            Food</button>
+        <img src="r20.jpg" alt="" class="img-fluid d-block m-auto">
+
+        <p class="text-center fs-5 my-5">The Leftovers Rescue Food App helps us track the total weight of your food
+            donations, so we can calculate the volume of greenhouse gas emissions you prevent and the value of the food
+            you donate. (Here’s more information about how we get those numbers.)</p>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 mt-2 text-center">
+                <img src="r21.png" class="img-fluid mt-2" alt="...">
+                <p style="font-size: 20px;" class="mt-5">113 businesses donated food in 2022</p>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 mt-2 text-center">
+                <img src="r22.png" class="img-fluid mt-2" alt="...">
+                <p style="font-size: 20px;" class="mt-5">9,366 routes completed
+                    in 2022</p>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 mt-2 text-center">
+                <img src="r23.png" class="img-fluid mt-2" alt="...">
+                <p style="font-size: 20px;" class="mt-5">$3,428,293 worth of food donated in 2022</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <hr style="color: #4CAF50; margin-top: 50px; margin-bottom: 50px;" id="hr1">
+        <div class="row">
+            <div class="col-lg-6 mt-5 me-4" id="joinletter">
+
+                <h1 class=" my-5" id="welcome5">Join Our Newsletter</h1>
+                <p class="my-5 fs-5" id="p">Want to know more? Sign up to
+                    receive our monthly newsletter and other updates, and see what’s happening at Leftovers and in the
+                    world of food rescue! </p>
+            </div>
+            <div class="col-lg-5 ">
+                <form class="p-5" id="form">
+                    <hr style="color: #4CAF50; width: 200px; margin: auto;">
+                    <h3 class="text-center mb-5 mt-3" id="p5">Join our newsletter</h3>
+                    <input class="form-control my-3" id="input" type="text" name="firstName" placeholder="First Name"
+                        required>
+                    <input class="form-control my-3" id="input" type="text" name="lastName" placeholder="Last Name"
+                        required>
+                    <input class="form-control my-3" id="input" type="email" name="email" placeholder="Email" required>
+                    <div class="form-check my-4">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            I agree to receive marketing messages via email.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const redirectAction = localStorage.getItem('redirectAction');
+            if (isLoggedIn === 'true') {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                document.getElementById('userName').textContent = currentUser.username;
+                document.getElementById('accountText').textContent = currentUser.username;
+                document.getElementById('userAccount').setAttribute('onclick', 'toggleProfileOffcanvas()');
+
+                if (currentUser.profileImage) {
+                    document.getElementById('profileImage').src = currentUser.profileImage;
+                }
+
+                if (redirectAction) {
+                    localStorage.removeItem('redirectAction');
+                    if (redirectAction === 'money') {
+                        window.location.href = 'donate-money.html';
+                    } else if (redirectAction === 'food') {
+                        window.location.href = 'donate-food.html';
+                    }
+                }
+
+
+            } else {
+                document.getElementById('userAccount').setAttribute('onclick', 'redirectToLogin()');
+            }
+        });
+
+        function redirectToLogin() {
+            window.location.href = 'login.html';
+
+            if (localStorage.getItem('redirectAction')) {
+                localStorage.removeItem('redirectAction');
+            }
+
+        }
+
+        function toggleProfileOffcanvas() {
+            const profileOffcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasProfile'));
+            profileOffcanvas.toggle();
+        }
+
+        function updateProfileImage() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                    currentUser.profileImage = e.target.result;
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+                    const users = JSON.parse(localStorage.getItem('users')) || [];
+                    const updatedUsers = users.map(user => {
+                        if (user.username === currentUser.username) {
+                            return currentUser;
+                        }
+                        return user;
+                    });
+                    localStorage.setItem('users', JSON.stringify(updatedUsers));
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('currentRider');
+            localStorage.removeItem('activeUserType');
+            location.assign('login.html');
+        }
+
+
+        function removeAccount() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const updatedUsers = users.filter(user => user.username !== currentUser.username);
+            localStorage.setItem('users', JSON.stringify(updatedUsers));
+
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('currentUser');
+            alert('Account removed');
+            window.location.href = 'indexchange.html';
+        }
+
+        function handleDonate(action) {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn === 'true') {
+                if (action === 'money') {
+                    window.location.href = 'donate-money.html';
+                } else if (action === 'food') {
+                    window.location.href = 'donate-food.html';
+                }
+            } else {
+                localStorage.setItem('redirectAction', action);
+                window.location.href = 'login.html';
+            }
+        }
+
+
+        // Initialize the map
+        var map = L.map('map').setView([24.8607, 67.0011], 13); // Centered on Karachi with a higher zoom
+
+        // Add a tile layer to the map with CartoDB Positron tiles
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 12
+        }).addTo(map);
+
+        // Add markers to the map with NGO locations
+        var locations = [
+            { lat: 24.8736, lng: 67.0282, name: "Edhi Foundation" },
+            { lat: 24.8602, lng: 67.0011, name: "Chhipa Welfare Association" },
+            { lat: 24.8565, lng: 67.0306, name: "Saylani Welfare International Trust" },
+            { lat: 24.9177, lng: 67.0971, name: "Aman Foundation" },
+            { lat: 24.8600, lng: 67.0100, name: "JDC Foundation" }
+        ];
+
+        locations.forEach(function (location) {
+            L.marker([location.lat, location.lng])
+                .addTo(map)
+                .bindPopup(location.name);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
